@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  {% load staticfiles %}
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0"/>
+  <meta charset="UTF-8">
+  <title>JEE Predictor</title>
+<link rel="stylesheet" href="{% static 'CSS/style1.css'%}">
+<script type="text/javascript" src="http://d3js.org/d3.v3.min.js"></script>
+  <script type="text/javascript" src="http://mpld3.github.io/js/mpld3.v0.2.js"></script>
+<link rel="stylesheet" href="{% static 'CSS/animate.min.css'%}">
+<style>
+.modal-full {
+    min-width: 100%;
+    margin: 0;
+}
+
+.modal-full .modal-content {
+    min-height: 100vh;
+}
+ .overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background: #2b2929fa;
+    z-index: 1000;
+  display:none;
+  font-size:28px;
+  color:#fff;
+  font-weight:bold;
+  text-align:justify;
+  font-family: Iceland;
+    padding-left:20%; 
+padding-right:20%;
+overflow: scroll; 
+  }
+  .closediv {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 58px;
+  margin-left: 50px;
+ text-decoration: none;
+ color:#fff;
+}
+</style>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<br>
+<h1>Colleges You may get are :</span></h1>
+
+<table class="responstable">
+  
+  <tr>
+    <th>College</th>
+    <th>Stream</th>
+    <th>Probability</th>
+  </tr>
+
+  {% for col in df%}
+      <tr>
+        
+        <td><a style="text-decoration: none;color:black" href="javascript:plot('{{col.0}}','{{col.1}}','{{cat}}')" >{{col.0}}</a></td>
+        <td ><a href="javascript:void(0)" onclick="opendv()">{{col.1}}</a></td>
+        <td><a style="text-decoration: none;color:black" href="plotalt?clg={{col.0}}&stream={{col.1}}&cat={{cat}}" >{{col.2}}</td>
+      </tr>
+    {%endfor%}
+ 
+  
+</table>
+<div class='overlay animated slideInDown' style="display:none;" id="about" >
+   <a href="javascript:void(0)" class="closediv" onclick="closedv()">&times;</a>
+  
+  <div id="ab">
+  </div></div>
+  {% csrf_token %}
+
+<script >
+ function opendv() {
+  document.getElementById("about").style.display = "block";
+}
+  function closedv() {
+  document.getElementById("about").style.display = "none";
+  
+
+}
+function loadRes(res) {
+  document.getElementById("ab").outerHTML=res;
+  
+
+}
+function clearCont(res) {
+  localStorage.clear();
+}
+function plot(clg,stream,cat)
+  {
+    clearCont();
+    $.ajax({
+        type: 'POST',
+      url: 'plot',
+      data: {'clg':clg,'stream':stream,'cat':cat,'csrfmiddlewaretoken': '{{csrf_token}}'},  
+      success: function(res)
+      {
+            opendv();
+            //loadRes(res);
+            console.log(res);
+            $("#ab").html(res);
+            $("#ab").trigger('create');
+            
+      },
+      error: function(er)
+      {
+        alert('nk');
+      }
+    });
+     
+  }
+</script>
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.js'></script>
+</body>
+</html>

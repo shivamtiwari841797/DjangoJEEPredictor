@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Responstable 2.0: a responsive table solution</title>
+<link rel="stylesheet" href="./style1.css">
+<style>
+.modal-full {
+    min-width: 100%;
+    margin: 0;
+}
+
+.modal-full .modal-content {
+    min-height: 100vh;
+}
+ .overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background: #2b2929fa;
+    z-index: 1000;
+	display:none;
+	font-size:28px;
+	color:#fff;
+	font-weight:bold;
+	text-align:justify;
+	font-family: Iceland;
+    padding-left:20%; 
+padding-right:20%;
+overflow: scroll;	
+  }
+  .closediv {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 58px;
+  margin-left: 50px;
+ text-decoration: none;
+ color:#fff;
+}
+</style>
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+  <link rel="stylesheet" href="animate.min.css">
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<h1>Responstable <span>2.0</span> by <span>jordyvanraaij</span></h1>
+
+<table class="responstable">
+  
+  <tr>
+    <th>College</th>
+    <th>Stream</th>
+    <th>Probability</th>
+  </tr>
+  <tr>
+    <td><a href="javascript:void(0)" onclick="opendv()">Foo</a></td>
+    <td>01/01/1978</td>
+    <td>Policyholder</td>
+  </tr>
+
+ 
+  <tr>
+    <td>Foo</td>
+    <td>01/01/1978</td>
+    <td>Spouse</td>
+  </tr>
+  </a>
+
+  
+</table>
+<div class='overlay animated slideInDown' style="display:none;" id="about" >
+   <a href="javascript:void(0)" class="closediv" onclick="closedv()">&times;</a>
+  <P class="blocktext">
+  <h1 style="font-family:Iceland;text-align:center;">ABOUT</h1><hr>
+     <img src="download.png"></p>
+ 
+  </div>
+<script>
+ function opendv() {
+  document.getElementById("about").style.display = "block";
+}
+  function closedv() {
+  document.getElementById("about").style.display = "none";
+}
+</script>
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.js'></script>
+</body>
+</html>

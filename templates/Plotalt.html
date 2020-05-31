@@ -1,0 +1,61 @@
+
+	<script type="text/javascript" src="http://d3js.org/d3.v3.min.js"></script>
+  <script type="text/javascript" src="http://mpld3.github.io/js/mpld3.v0.2.js"></script>
+ 
+
+{%load staticfiles%}
+<div style="position:absolute;left:4%;top:22%;width:30%;">
+		{{clg}} 
+</div>
+<div style="position:absolute;left:4%;top:32%;width:30%;">
+		{{stream}} 
+</div>
+<div style="position:absolute;left:4%;top:42%;width:30%;">
+		{{cat}}
+</div>
+	<div>
+		<div>
+			
+		</div>
+		
+		<div style="position:absolute;left:15%;top:5%;width:30%;">
+			<img src="{%static 'plots/ob_' %}{{clg}}_{{stream}}_{{cat}}.png"></img>
+		</div>
+	</div>
+
+	<div>
+		<div>
+			
+		</div>
+		<div style="position:absolute;left:47%;top:5%;width:30%;">
+			<img src="{%static 'plots/cb_' %}{{clg}}_{{stream}}_{{cat}}.png"></img>
+		</div>
+	</div>
+
+	<div>
+		<div>
+			
+		</div>
+		<div style="position:absolute;left:15%;top:45%;width:30%;">
+			<img src="{%static 'plots/on_' %}{{clg}}_{{stream}}_{{cat}}.png"></img>
+		</div>
+	</div>
+
+
+	<div>
+		<div>
+			
+		</div>
+		<div style="position:absolute;left:47%;top:45%;width:30%;">
+			<img src="{%static 'plots/cn_' %}{{clg}}_{{stream}}_{{cat}}.png"></img>
+		</div>
+	</div>
+
+	<div style="position:absolute;left:25%;top:88%;width:30%;">
+		Opening Rank Stats
+	</div>
+
+	<div style="position:absolute;left:55%;top:88%;width:30%;">
+		Closing Rank Stats
+	</div>
+

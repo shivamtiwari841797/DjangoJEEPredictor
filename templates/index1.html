@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>JEE Predictor</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<style> 
+#rcorners2 {
+  border-radius: 25px;
+  border: 2px solid black;
+  padding: 20px; 
+  width: 600px;
+  height: 400px;  
+}
+
+
+input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: #02445;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+</style>
+<body>
+
+
+<div class="jumbotron text-center" style="background-color: #02517cde;color: white; padding-top:5px;padding-bottom:15px;margin-bottom:10px;">
+  
+     <!-- <img src="nit_logo.png" style="float:right"  width="110" height="110" alt="nitt"> -->
+	  <!--<img src="isro.png" style="float:left"  width="110" height="110" alt="ISRO">-->
+    
+      <h2 style="margin-top:2px;font-size:45px">Jee Predictor</h2>
+	  <h2 style="margin-top:2px;font-size:22px; text-align:center">(Probable colleges you can get with your category ranks)</h2>
+    
+    
+</div>  <br><br><br><br>
+<form action="result" method="post">
+  {%  csrf_token %}
+<div class="container">
+  <div class="row">
+   <div class="col-sm-4" ></div>
+   <div class="col-sm-4" style="border: 3px solid #f1f1f1;padding:2%;">
+     <h2 style="font-size:25px; text-align:center">Fill Your Details</h2><br>
+      <label for="Rank"><b>Rank</b></label>
+      <input type="text" placeholder="Enter Rank" name="rank" required>
+      <label for="category"><b>Category</b></label>
+      <select name="caste">
+        <option value="Open">Open</option>
+        <option value="OBC">OBC</option>
+        <option value="SC">SC</option>
+        <option value="ST">ST</option>
+        </select>
+      <button type="submit" style="background-color:#024457;">submit</button>
+   </div>
+   <div class="col-sm-4" ></div>
+  </div>
+</div>
+</form>
+</body>
+</html>

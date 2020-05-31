@@ -1,0 +1,53 @@
+<html>
+	
+	<head>
+		<title>JEE Predictor</title>
+		<style>
+			td
+			{
+				height:30px;
+				width:110px;
+			}
+			form
+			{
+				position:relative;
+				top:25%;
+				left:30%;
+			}
+		</style>
+	</head>
+
+	<body>
+		<form action="result" method="POST">
+			{%  csrf_token %}
+			<table>
+				<tr>
+					<td>Rank</td>
+					<td>
+						<input type="number" name="rank" size="6">
+					</td>
+				</tr>
+				<tr>
+					<td>Caste</td>
+					<td>
+						<select name="caste">
+							<option>select</option>
+							<option value="Open">Open</option>
+							<option value="OBC">OBC</option>
+							<option value="SC">SC</option>
+							<option value="ST">ST</option>
+						</select>
+					</td>
+				</tr>
+				
+				<tr>
+					<td></td>
+					<td>
+						<input type="submit" name="btn" >
+					</td>
+				</tr>
+			</table>
+		</form>
+	</body>
+
+</html>

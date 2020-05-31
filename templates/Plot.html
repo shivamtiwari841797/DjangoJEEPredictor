@@ -1,0 +1,51 @@
+
+	<script type="text/javascript" src="http://d3js.org/d3.v3.min.js"></script>
+  <script type="text/javascript" src="http://mpld3.github.io/js/mpld3.v0.2.js"></script>
+ 
+	mu= {{mu}}
+
+	type={{t}}
+	sigma= {{sigma}}
+
+	<div>
+		<div>
+			
+		</div>
+		{% autoescape off %}
+		<div style="float:left;width:40%;">Opening Bar Plot{{ ob|safe }}</div>
+		{% endautoescape %}
+		</div>
+	</div>
+
+	<div>
+		<div>
+			
+		</div>
+		{% autoescape off %}
+		<div style="float:left;width:40%;">Closing Bar Plot{{ cb|safe }}</div>
+		{% endautoescape %}
+		</div>
+	</div>
+
+	<div>
+		<div>
+			
+		</div>
+		{% autoescape off %}
+		<div style="float:left;width:40%;">Opening Normal Plot{{ on|safe }}</div>
+		{% endautoescape %}
+		</div>
+	</div>
+
+
+	<div>
+		<div>
+			
+		</div>
+		{% autoescape off %}
+		<div style="float:left;width:40%;">Closing Normal Plot{{ cn|safe }}</div>
+		{% endautoescape %}
+
+		</div>
+	</div>
+

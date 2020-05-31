@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  {% load staticfiles %}
+  <meta charset="UTF-8">
+  <title>Jee Predictor</title>
+  <link rel="stylesheet" href="{% static 'CSS/style.css'%}">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="container">  
+  <form id="contact" action="result" method="post" style="border-radius:5%;">
+    {%  csrf_token %}
+    <h3>JEE Predictor</h3>
+    <fieldset>
+      <input placeholder="JEE Rank" type="number" name="rank" tabindex="1" style="border-radius:5px;box-shadow: 5px 5px 5px #4caf50b8;" required autofocus>
+    </fieldset>
+    <fieldset>
+		<select name="caste" class="" style="border-radius:5px;box-shadow: 5px 5px 5px #4caf50b8;">
+		  <option>select</option>
+      <option value="Open">Open</option>
+      <option value="OBC">OBC</option>
+      <option value="SC">SC</option>
+      <option value="ST">ST</option>
+		</select>
+      
+    </fieldset>
+    
+    <fieldset>
+      <button name="submit" type="submit" id="contact-submit" data-submit="...Sending" style="border-radius:5px;">Submit</button>
+    </fieldset>
+    </form>
+</div>
+<!-- partial -->
+  
+</body>
+</html>
